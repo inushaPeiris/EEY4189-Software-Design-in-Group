@@ -1,7 +1,7 @@
 const router = require("express").Router();
-let Student = require("../models/Student");
+let customer = require("../models/customer");
 
-http://localhost:8070/student/add
+http://localhost:8070/customer/add
 
 router.route("/add").post((req,res)=>{
     
@@ -9,7 +9,7 @@ router.route("/add").post((req,res)=>{
     const age = Number(req.body.age);
     const gender = req.body.gender;
 
-    const newStudent = new Student({
+    const newcustomer = new customer({
 
         name,
         age,
@@ -17,38 +17,38 @@ router.route("/add").post((req,res)=>{
 
     })
 
-    newStudent.save().then(()=>{
-        res.json("Student Added");
+    newcustomer.save().then(()=>{
+        res.json("customer Added");
     }).catch((err)=>{
         console.log(err);
     })
 
 })
 
-http://localhost:8070/student
+http://localhost:8070/customer
 
 router.route("/").get((req,res)=>{
 
-    Student.find().then((student)=>{
-        res.json(student);
+    customer.find().then((customer)=>{
+        res.json(customer);
     }).catch((err)=>{
         console.log(err);
     })
 })
 
-http://localhost:8070/student/update
+http://localhost:8070/customer/update
 
 router.route("/update/:id").put(async (req, res) => {
     let userId = req.params.id;
     const {name, age, gender} = req.body;
 
-    const updateStudent = {
+    const updatecustomer = {
         name,
         age,
         gender
     }
 
-    const update = await Student.findByIdAndUpdate(userId, updateStudent)
+    const update = await customer.findByIdAndUpdate(userId, updatecustomer)
     .then(() => {
         res.status(200).send({status: "User updated"})
     }).catch((err) => {
@@ -57,12 +57,12 @@ router.route("/update/:id").put(async (req, res) => {
     })
 })
 
-http://localhost:8070/student/delete
+http://localhost:8070/customer/delete
 
 router.route("/delete/:id").delete(async (req, res) => {
     let userId = req.params.id;
 
-    await Student.findByIdAndDelete(userId)
+    await customer.findByIdAndDelete(userId)
     .then(() => {
         res.status(200).send({status: "User Deleted"});
     }).catch((err) => {
@@ -73,9 +73,9 @@ router.route("/delete/:id").delete(async (req, res) => {
 
 router.route("/get/:id").get(async (req, res) => {
     let userId = req.params.id;
-    const user = await Student.findById(userId)
-    .then((student) => {
-        res.status(200).send({status: "User fetctech", student})
+    const user = await customer.findById(userId)
+    .then((customer) => {
+        res.status(200).send({status: "User fetctech", customer})
     }).catch((err) => {
         console.log(err.message);
         res.status(500).send({status: "Error with get user", error: err.message});
