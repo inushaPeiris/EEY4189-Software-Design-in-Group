@@ -13,7 +13,7 @@ function LoginScreen({ navigation }) {
       />
 
       <TextInput style={{height: 40, width: 250, margin: 12, borderWidth: 1, borderRadius: 10, padding: 10,}} 
-      placeholder="Username" keyboardType="text"/>
+      placeholder="change" keyboardType="text"/>
 
       <TextInput style={{height: 40, width: 250, margin: 12, borderWidth: 1, borderRadius: 10, padding: 10,}}  
       placeholder="Password" keyboardType="text" secureTextEntry={true}
