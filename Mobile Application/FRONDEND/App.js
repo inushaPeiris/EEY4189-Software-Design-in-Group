@@ -8,12 +8,12 @@ function LoginScreen({ navigation }) {
   return (
     <View style={styles.view}>
       <Image
-        source={{ uri: 'https://api.logo.com/api/v2/images?logo=logo_39fc4d87-896b-4e18-9709-5397632fc735&format=webp&margins=0&quality=60&width=500&background=transparent&u=1662404818' }}
-        style={{ width: 200, height: 200, marginBottom: 100,}}
+        source={require('./assets/logo1.png')}
+        style={{ width: 250, height: 250, marginBottom: 30,}}
       />
 
       <TextInput style={{height: 40, width: 250, margin: 12, borderWidth: 1, borderRadius: 10, padding: 10,}} 
-      placeholder="change" keyboardType="text"/>
+      placeholder="Username" keyboardType="text"/>
 
       <TextInput style={{height: 40, width: 250, margin: 12, borderWidth: 1, borderRadius: 10, padding: 10,}}  
       placeholder="Password" keyboardType="text" secureTextEntry={true}
