@@ -16,7 +16,7 @@ function LoginScreen({ navigation }) {
       placeholder="Username" keyboardType="text"/>
 
       <TextInput style={{height: 40, width: 250, margin: 12, borderWidth: 1, borderRadius: 10, padding: 10,}}  
-      placeholder="Password" keyboardType="text" secureTextEntry={true}
+      placeholder="paaaaaaas" keyboardType="text" secureTextEntry={true}
       />
 
       <TouchableOpacity style={{alignItems: "center", padding: 5, marginLeft:150, marginBottom: 20}} 
