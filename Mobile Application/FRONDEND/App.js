@@ -16,11 +16,11 @@ function LoginScreen({ navigation }) {
       placeholder="Username" keyboardType="text"/>
 
       <TextInput style={{height: 40, width: 250, margin: 12, borderWidth: 1, borderRadius: 10, padding: 10,}}  
-      placeholder="paaaaaaas" keyboardType="text" secureTextEntry={true}
+      placeholder="Password" keyboardType="text" secureTextEntry={true}
       />
 
       <TouchableOpacity style={{alignItems: "center", padding: 5, marginLeft:150, marginBottom: 20}} 
-      onPress={() => navigation.navigate('Reset Password')}>
+      onPress={() => navigation.navigate('Reset Password-1')}>
         <Text style={{color: "#0000ff"}}>forgot password</Text>
       </TouchableOpacity>
 
@@ -30,11 +30,11 @@ function LoginScreen({ navigation }) {
     </View>
   );
 }
-// Reset password screen
-function ResetScreen({ navigation }) {
+// Reset password screen 1
+function ResetScreen1({ navigation }) {
   return (
     <View style={styles.view}> 
-      <Image
+      {/* <Image
         source={{ uri: 'https://cdn-icons-png.flaticon.com/512/6357/6357048.png' }}
         style={{ width: 200, height: 200, marginBottom: 60,}}
       />
@@ -44,7 +44,42 @@ function ResetScreen({ navigation }) {
       placeholder="Enter username" keyboardType="text"/>
 
       <TextInput style={{height: 40, width: 250, margin: 15, borderWidth: 1, borderRadius: 10, padding: 10,}}  
-      placeholder="Enter e-mail" keyboardType="text"/>
+      placeholder="Enter e-mail" keyboardType="text"/> */}
+
+      <Text style={{textAlign: 'center', margin: 40, fontSize: 17}}>We will send reset code to the your phone</Text>
+      
+      <TextInput style={{height: 40, width: 250, margin: 20, borderWidth: 1, borderRadius: 10, padding: 10,}} 
+      placeholder="Username" keyboardType="text"/>
+
+      <Button title="Reset" onPress={() => navigation.navigate('Reset Password-2')}/>
+    </View>
+  );
+}
+// Reset password screen 2
+function ResetScreen2({ navigation }) {
+  return (
+    <View style={styles.view}> 
+      <Text style={{textAlign: 'center', margin: 40, fontSize: 17}}>Enter the code below</Text>
+
+      <TextInput style={{height: 40, width: 250, margin: 20, borderWidth: 1, borderRadius: 10, padding: 10,}} 
+      keyboardType="text"/>
+
+      <Button title="submit" onPress={() => navigation.navigate('Reset Password-3')}/>
+    </View>
+  );
+}
+// Reset password screen 3
+function ResetScreen3({ navigation }) {
+  return (
+    <View style={styles.view}> 
+
+      <Text style={{textAlign: 'center', margin: 40, fontSize: 17}}>Enter a new password</Text>
+
+      <TextInput style={{height: 40, width: 250, margin: 10, borderWidth: 1, borderRadius: 10, padding: 10,}} placeholder="new password"
+      keyboardType="text"/>
+
+      <TextInput style={{height: 40, width: 250, margin: 10, borderWidth: 1, borderRadius: 10, padding: 10,}} placeholder="re-enter new password"
+      keyboardType="text"/>
 
       <Button title="Reset" onPress={() => navigation.navigate('Login')}/>
     </View>
@@ -291,7 +326,9 @@ function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Dashboard" component={DashboardScreen} />
-        <Stack.Screen name="Reset Password" component={ResetScreen} />
+        <Stack.Screen name="Reset Password-1" component={ResetScreen1} />
+        <Stack.Screen name="Reset Password-2" component={ResetScreen2} />
+        <Stack.Screen name="Reset Password-3" component={ResetScreen3} />
         <Stack.Screen name="LP Gas Types" component={GasTypes} />
         <Stack.Screen name="Live Queue Map" component={MapScreen} />
         <Stack.Screen name="Notifications" component={NotificationScreen} />
