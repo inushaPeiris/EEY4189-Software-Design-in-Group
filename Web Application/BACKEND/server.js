@@ -30,6 +30,10 @@ const packageRouter = require("./routes/packages");
 
 app.use("/package", packageRouter);
 
+const bookingRouter = require("./routes/bookings");
+
+app.use("/booking", bookingRouter);
+
 app.listen(PORT, () => {
-    console.log('Server is up and running on port number: ${PORT}')
+    console.log('Server is up and running on port number: 8070')
 })

@@ -68,9 +68,11 @@ router.route("/delete/:id").delete(async (req, res) => {
     })
 })
 
+// get by id
+http://localhost:8070/package/get
 router.route("/get/:id").get(async (req, res) => {
     let packageId = req.params.id;
-    const package = await package.findById(packageId)
+    const x = await package.findById(packageId)
     .then((package) => {
         res.status(200).send({status: "Package fetctech", package})
     }).catch((err) => {
