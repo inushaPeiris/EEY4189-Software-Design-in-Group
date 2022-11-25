@@ -34,17 +34,6 @@ function LoginScreen({ navigation }) {
 function ResetScreen1({ navigation }) {
   return (
     <View style={styles.view}> 
-      {/* <Image
-        source={{ uri: 'https://cdn-icons-png.flaticon.com/512/6357/6357048.png' }}
-        style={{ width: 200, height: 200, marginBottom: 60,}}
-      />
-      <Text style={{fontSize:20, margin: 30, textAlign:'center'}}>Enter the username and email of your account. Check your email we will send the link to reset your password.</Text>
-
-      <TextInput style={{height: 40, width: 250, margin: 12, borderWidth: 1, borderRadius: 10, padding: 10,}} 
-      placeholder="Enter username" keyboardType="text"/>
-
-      <TextInput style={{height: 40, width: 250, margin: 15, borderWidth: 1, borderRadius: 10, padding: 10,}}  
-      placeholder="Enter e-mail" keyboardType="text"/> */}
 
       <Text style={{textAlign: 'center', margin: 40, fontSize: 17}}>We will send reset code to the your phone</Text>
       

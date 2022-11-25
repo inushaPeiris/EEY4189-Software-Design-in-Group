@@ -26,6 +26,10 @@ const customerRouter = require("./routes/customers");
 
 app.use("/customer", customerRouter);
 
+const packageRouter = require("./routes/packages");
+
+app.use("/package", packageRouter);
+
 app.listen(PORT, () => {
     console.log('Server is up and running on port number: ${PORT}')
 })
