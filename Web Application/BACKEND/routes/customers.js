@@ -3,7 +3,7 @@ let customer = require("../models/customer");
 
 http://localhost:8070/customer/add
 
-router.route("/add").post((req,res)=>{ customerID
+router.route("/add").post((req,res)=>{
     
     const name = req.body.name;
     const age = Number(req.body.age);
