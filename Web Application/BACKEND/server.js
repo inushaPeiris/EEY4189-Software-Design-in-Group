@@ -23,16 +23,16 @@ connection.once('open', () => {
 })
 
 const customerRouter = require("./routes/customers");
-
 app.use("/customer", customerRouter);
 
 const packageRouter = require("./routes/packages");
-
 app.use("/package", packageRouter);
 
 const bookingRouter = require("./routes/bookings");
-
 app.use("/booking", bookingRouter);
+
+const feedbackRouter = require("./routes/feedbacks");
+app.use("/feedback", feedbackRouter);
 
 app.listen(PORT, () => {
     console.log('Server is up and running on port number: 8070')
