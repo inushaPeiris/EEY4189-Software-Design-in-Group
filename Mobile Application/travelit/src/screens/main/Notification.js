@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, ScrollView, View, StyleSheet, ImageBackground, Text, TextInput, TouchableOpacity,Image } from "react-native";
 
 
-const Booking =() =>{
+const Notification =() =>{
     return (
         <SafeAreaView>
             <ScrollView>
@@ -14,7 +14,7 @@ const Booking =() =>{
                     
                     <View style={{marginTop:50,padding:10}}>
                         
-                    <Text style={{fontSize:30,fontWeight:'bold',color:'white',textAlign: 'center'}}>My Bookings</Text>
+                    <Text style={{fontSize:30,fontWeight:'bold',color:'white',textAlign: 'center'}}>Notifications</Text>
                     </View>
                 </ImageBackground>
 
@@ -22,17 +22,10 @@ const Booking =() =>{
 
             <View style={style.description}>
 
-                <Image source={require('../../assest/images/reservation_logo.png')} style={style.mainlogo}/>
-
-                <Text style={{fontSize:16,fontWeight:'bold',textAlign:'center'}}>
-                    Booking
-                </Text>
-
-                
+                <Image source={require('../../assest/images/notification.png')} style={style.mainlogo}/>
+               
             </View>
                                 
-
-           
 
             </ScrollView>
         </SafeAreaView>
@@ -56,13 +49,14 @@ const style = StyleSheet.create({
     },
 
     mainlogo:{
-        marginTop:-50,
+        marginTop:-30,
         padding:10,
-        height:250,
-        width:250,
+        height:200,
+        width:200,
         resizeMode: 'contain',
         alignSelf: 'center',
     },
 
+
 });
-export default Booking;
+export default Notification;

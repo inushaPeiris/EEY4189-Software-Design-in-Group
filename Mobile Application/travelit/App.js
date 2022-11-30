@@ -9,10 +9,12 @@ import Packages from "./src/screens/main/Packages";
 import Booking from "./src/screens/main/Booking";
 import Aboutus from "./src/screens/main/Aboutus";
 import Contact from "./src/screens/main/Contact";
+import Notification from "./src/screens/main/Notification";
+
 
 function App() {
   return (
-    <Contact/>
+    <Login/>
   );
 }
 
