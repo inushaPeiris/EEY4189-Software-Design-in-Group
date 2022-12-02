@@ -11,7 +11,7 @@ import Aboutus from "./src/screens/main/Aboutus";
 import Contact from "./src/screens/main/Contact";
 import Notification from "./src/screens/main/Notification";
 
-
+// Main Function
 function App() {
   return (
     <Login/>
