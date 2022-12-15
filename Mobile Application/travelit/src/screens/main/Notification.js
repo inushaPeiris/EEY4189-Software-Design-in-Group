@@ -14,7 +14,7 @@ const Notification =() =>{
                     
                     <View style={{marginTop:50,padding:10}}>
                         
-                    <Text style={{fontSize:30,fontWeight:'bold',color:'white',textAlign: 'center'}}>Notifications</Text>
+                    <Text style={{fontSize:30,fontWeight:'bold',color:'white',textAlign: 'center'}}>Notification</Text>
                     </View>
                 </ImageBackground>
 
