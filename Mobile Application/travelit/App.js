@@ -10,11 +10,14 @@ import Booking from "./src/screens/main/Booking";
 import Aboutus from "./src/screens/main/Aboutus";
 import Contact from "./src/screens/main/Contact";
 import Notification from "./src/screens/main/Notification";
+import Information from "./src/screens/main/Info";
+import Cab from "./src/screens/main/Cab";
+
 
 // Main Function
 function App() {
   return (
-    <Login/>
+    <Cab/>
   );
 }
 
