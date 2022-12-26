@@ -12,12 +12,13 @@ import Contact from "./src/screens/main/Contact";
 import Notification from "./src/screens/main/Notification";
 import Information from "./src/screens/main/Info";
 import Cab from "./src/screens/main/Cab";
+import Payment from "./src/screens/main/Payment";
 
 
 // Main Function
 function App() {
   return (
-    <Cab/>
+    <Payment/>
   );
 }
 
