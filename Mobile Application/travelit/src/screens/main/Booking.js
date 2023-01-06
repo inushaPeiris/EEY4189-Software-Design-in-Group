@@ -25,7 +25,7 @@ const Booking =() =>{
                 <Image source={require('../../assest/images/reservation_logo.png')} style={style.mainlogo}/>
 
                 <Text style={{fontSize:16,fontWeight:'bold',textAlign:'center'}}>
-                    Booking
+                    Booking History
                 </Text>
 
                 
