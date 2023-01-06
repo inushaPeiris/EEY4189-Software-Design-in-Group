@@ -72,7 +72,7 @@ router.route("/delete/:id").delete(async (req, res) => {
 })
 
 // get by id
-http://localhost:8070/package/get
+http://localhost:8070/customer/get
 router.route("/get/:id").get(async (req, res) => {
     let customerID = req.params.id;
     const x = await customer.findById(customerID)

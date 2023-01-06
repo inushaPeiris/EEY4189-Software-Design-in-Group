@@ -22,6 +22,8 @@ connection.once('open', () => {
     console.log("Mongodb Connection success!");
 })
 
+// -------------------------------------------------------------------------------
+
 const customerRouter = require("./routes/customers");
 app.use("/customer", customerRouter);
 
@@ -33,6 +35,9 @@ app.use("/booking", bookingRouter);
 
 const feedbackRouter = require("./routes/feedbacks");
 app.use("/feedback", feedbackRouter);
+
+
+// ------------------------------------------------------------------------------------
 
 app.listen(PORT, () => {
     console.log('Server is up and running on port number: 8070')
