@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { response } = require("express");
 let Payment = require("../Models/Payment.Model");
 
-//http://Localhost:8070/driver/add
+//http://Localhost:8070/payment/add
 router.route("/add").post((req, res) => {
   const cardType = req.body.cardType;
   const number = req.body.number;
@@ -31,7 +31,6 @@ router.route("/add").post((req, res) => {
 });
 
 // fetch data
-
 router.route("/").get((req, res) => {
   Payment.find()
     .then((payment) => {
@@ -43,12 +42,9 @@ router.route("/").get((req, res) => {
 });
 
 //update
-
 router.route("/update/:id").put(async (req, res) => {
   let userId = req.params.id;
-  //d structure
   const { cardType, number, expDate, name, code, payment } = req.body;
-
   const updatePayment = {
     cardType,
     number,
@@ -71,7 +67,6 @@ router.route("/update/:id").put(async (req, res) => {
 });
 
 //delete
-
 router.route("/delete/:id").delete(async (req, res) => {
   let userId = req.params.id;
 

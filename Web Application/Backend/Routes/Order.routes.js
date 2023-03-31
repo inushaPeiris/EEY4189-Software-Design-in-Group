@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { response } = require("express");
 let Order = require("../Models/Order.model");
 
-//http://Localhost:8070/driver/add
+//http://Localhost:8070/order/add
 router.route("/add").post((req, res) => {
   const cusName = req.body.cusName;
   const order_item = req.body.order_item;
@@ -33,7 +33,6 @@ router.route("/add").post((req, res) => {
 });
 
 // fetch data
-
 router.route("/").get((req, res) => {
   Order.find()
     .then((order) => {
@@ -45,10 +44,9 @@ router.route("/").get((req, res) => {
 });
 
 //update
-
 router.route("/update/:id").put(async (req, res) => {
   let userId = req.params.id;
-  //d structure
+
   const {
     cusName,
     order_item,
@@ -82,7 +80,6 @@ router.route("/update/:id").put(async (req, res) => {
 });
 
 //delete
-
 router.route("/delete/:id").delete(async (req, res) => {
   let userId = req.params.id;
 

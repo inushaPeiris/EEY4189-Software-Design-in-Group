@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-//import '../../Styles/managebusroute.css';
 import Image2 from '../../Images/route.png';
 import '../../Styles/Dashboard.css'
 
@@ -38,91 +37,58 @@ export default class Dashboard extends Component {
                 
 
 
-               {/* ---------bus----------- */}
+                {/* Package Button */}
                <div>
                    <button id="dash_btn1">
 
-                        <i class="fas fa-bus fa-5x imgcolor1"></i>
-                
+                        <i class="fas fa-box fa-5x imgcolor1"></i>
                         <a className="btn btn-warning" id="dash_link1" href="#">
-                            Buses
+                            Packages
                         </a>
                        
                     </button>
                </div>
 
+                {/* Bookings Button */}
                <div>
                    <button id="dash_btn2">
-
+                        
                         <i class="fas fa-route fa-5x imgcolor2"></i>
-                
                         <a className="btn btn-warning" id="dash_link2" href="/dashboard/viewBusroute">
-                            Routes
+                            Bookings
                         </a>
                        
                     </button>
                </div>
 
+                {/* Customers Button */}
                <div>
                    <button id="dash_btn3">
 
                         <i class="fas fa-address-card fa-5x imgcolor3"></i>
                 
                         <a className="btn btn-warning" id="dash_link3" href="#">
-                            Tokens
+                            Customers
                         </a>
                        
                     </button>
                </div>
 
+               <br></br>
+              {/* Package Button */}
+              <div>
+                   <button id="dash_btn4">
+
+                        <i class="fas fa-solid fa-comments fa-5x imgcolor4"></i>
+                        <a className="btn btn-warning" id="dash_link4" href="#">
+                            Feedbacks
+                        </a>
+                       
+                    </button>
+               </div> 
+
                 
-                <div id="table1" style={{marginTop:'2cm'}}>
                 
-                    <table  id="viewtable" style={{textAlign:'center'}} className="report_busroute_table">
-                        <thead>
-
-                            <tr style={{'textAlign':'left'}}>
-
-                                <span >
-
-                                    <span id="text1">Routes</span>
-                                    
-                                    <div>
-                                        <img src={Image2} id="iconimage" style={{marginTop:'-1cm'}}/>
-                                    </div>                         
-
-                                </span>
-                            </tr>
-
-                            <tr id="reporthead1">
-
-                               
-                                <th style={{'textAlign':'center', width:'3cm','backgroundColor':'whitesmoke',color:'black'}}>Route</th>
-                                <th style={{'textAlign':'center','backgroundColor':'whitesmoke',color:'black'}}>Bus Number</th>
-                                <th style={{'textAlign':'center','backgroundColor':'whitesmoke',color:'black'}}>Route From</th>
-                                <th style={{'textAlign':'center','backgroundColor':'whitesmoke',color:'black'}}>Route To</th>
-                                <th style={{'textAlign':'center','backgroundColor':'whitesmoke',color:'black'}}>Cost</th>
-                            
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-                            {this.state.busroutes.map((p, index)=>{
-                                return <tr key={index}>
-                                          
-                                    <td>{p.route_name}</td>
-                                    <td>{p.bus_no}</td>
-                                    <td>{p.route_from}</td>
-                                    <td>{p.route_to}</td>
-                                    <td>{p.cost}</td>
-
-                                </tr>
-                            })}
-                        </tbody>
-
-                    </table>
-                </div>
             </div>
         );
     }

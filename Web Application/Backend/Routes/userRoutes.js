@@ -8,8 +8,6 @@ router.post("/", async (req,res)=>{
     res.send("Test")
 })
 
-
-
 //register new user
 router.route("/register").post(async(req,res)=>{
    
@@ -22,14 +20,10 @@ router.route("/register").post(async(req,res)=>{
 
         if(password != verifyPassword)
             return res.status(400).json({msg : "please enter same password twice"})
-
        
         const existingUser = await User.findOne({email});
         if(existingUser)
             return res.status(400).json({msg : "email already exists"})
-
-
-
 
         //hash password
         const salt =  await bcrypt.genSalt();
@@ -71,12 +65,6 @@ router.route("/register").post(async(req,res)=>{
    
 })
 
-
-
-
-
-
-
 //login
 router.route("/login").post(async(req,res)=>{
     try{
@@ -98,8 +86,6 @@ router.route("/login").post(async(req,res)=>{
         if(!passwordIsCorrect)
             return res.status(400).send({msg : "Invalid mail or password"});
 
-
-
             mail = email
         //sign the token
         const token = jwt.sign(
@@ -108,21 +94,16 @@ router.route("/login").post(async(req,res)=>{
             },process.env.JWT_SECRET
         );
 
-
         //send the token in the HTTP-only cookie
         res.cookie("token",token,{
             httpOnly : true
         }).send();
 
-        
     }catch(err){
         console.error(err);
         res.status(500).send();
     }
 })
-
-
-
 
 //log out
 router.route("/logout").get(async(req,res)=>{
@@ -131,12 +112,6 @@ router.route("/logout").get(async(req,res)=>{
         expires: new Date(0)
     }).send();
 })
-
-
-
-
-
-
 
 router.get("/loggedIn",(req,res)=>{
     try{
@@ -154,8 +129,5 @@ router.get("/loggedIn",(req,res)=>{
         res.json(null);
     }
 })
-
-
-
 
 module.exports = router;

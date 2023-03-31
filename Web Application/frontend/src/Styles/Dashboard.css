@@ -79,6 +79,7 @@
     border-radius: 50px 50px 50px 50px;
 
 }
+
 #dash_btn1:hover{
     background-color: rgb(255, 230, 230);
 }
@@ -87,4 +88,31 @@
 }
 #dash_btn3:hover{
     background-color: rgb(230, 249, 255);
+}
+
+#dash_btn4{
+    margin-left: 10cm;
+    margin-top: 1.5cm;
+    width: 6cm;
+    height: 3cm;
+    border: 1px solid rgb(27, 194, 1);
+    box-shadow: 5px 10px #e7e7e7;
+    border-radius: 9px;
+    background-color: white;
+}
+.imgcolor4{
+    color: rgb(27, 194, 1);
+    margin-top: 10px;
+}
+
+#dash_link4{
+
+    color:rgb(255, 255, 255);
+    width: 6cm;
+    margin-top: 0.2cm;
+    margin-left: -8px;
+    background-color: rgb(27, 194, 1);
+    border-radius: 50px 50px 50px 50px;
+    border-color: rgb(27, 194, 1);
+
 }

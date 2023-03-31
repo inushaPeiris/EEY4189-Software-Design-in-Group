@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from "axios"
 import AuthContext from '../context/AuthContext';
 import '../../Styles/Login.css'
-//ort Image1 from '../../Images/Busreport_image.jpg'
+import Logo from '../../Images/travelit_logo.png';
 export default function Loggin() {
 
     const[email,setEmail] = useState("");
@@ -63,32 +63,23 @@ export default function Loggin() {
                     
                     <a onClick={e=>{login()}}><div className="btn btn-info" id="ltext2">SIGN IN</div></a>
                     <br></br><br></br>
-                    <a href="#"><div className="btn btn-info1" id="ltext3">Forgot password ?</div></a>
                     <br></br><br></br>
                     
                    <Link to="/register" className="regLink" id="ltext4">Create an Account</Link>
 
-                   
-                    {/* <div id="topicname">
-                    <i class="fas fa-umbrella-beach fa-4x iconcolor"></i>
-                      <span>TravelLanka</span>
-    
-                    </div> */}
-                   
                 </div>
                 
             </div>
 
-            {/* <div >
-                <img src={Image1} id="image1"/>
-            </div> */}
+            
             <div id="c1">
-                <br></br><br></br><br></br><br></br><br></br><br></br>
+                <img src={Logo} className="mainImage"/>
+                <br></br><br></br>
                 <div id="ltext6">
-                    WELCOME &nbsp;&nbsp; BACK  <br></br><i id="ltext5"> TravelLanka</i><br></br>
-                    <span id="ltext7">
-                        No matter where you’re going from, we take you there..
-                    </span>
+                    WELCOME &nbsp;&nbsp;  
+                    <br></br>
+                    <i id="ltext5"> Travelit</i>
+                    <br></br>
                 </div>
             </div>
             

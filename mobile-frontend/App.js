@@ -49,11 +49,5 @@ export default function App() {
 };
 
 
-// // Main Function
-// function App() {
-//   return (
-//     <Login/>
-//   );
-// }
 
 // export default App;

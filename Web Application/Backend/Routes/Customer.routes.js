@@ -28,7 +28,6 @@ router.route("/add").post((req, res) => {
 });
 
 // fetch data
-
 router.route("/").get((req, res) => {
   Customer.find()
     .then((customer) => {
@@ -39,11 +38,10 @@ router.route("/").get((req, res) => {
     });
 });
 
-//update
 
+//update method
 router.route("/update/:id").put(async (req, res) => {
   let userId = req.params.id;
-  //d structure
   const { name, contact, email, address, password } = req.body;
 
   const updateCustomer = {
@@ -66,8 +64,7 @@ router.route("/update/:id").put(async (req, res) => {
     });
 });
 
-//delete
-
+//delete method
 router.route("/delete/:id").delete(async (req, res) => {
   let userId = req.params.id;
 

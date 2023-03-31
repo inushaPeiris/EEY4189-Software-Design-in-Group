@@ -1,30 +1,29 @@
 import React from "react";
-import '../../Styles/sidebar.css'
+import '../../Styles/sidebar.css';
+import Logo from '../../Images/travelit_logo.png';
 //import Image1 from'../../Images/journey_img1.png'
 
 function sidebar() {
 
     return (
       <div>
+        
         <div className="nav-side-menu">
-          <div className="brand">TravelLanka</div>
+          <div className="brand">Travelit</div>
           <i
             className="fa fa-bars fa-2x toggle-btn"
             data-toggle="collapse"
             data-target="#menu-content"
           ></i>
 
+
           <div className="menu-list">
             <ul id="menu-content" className="menu-content collapse out">
-              {/* <div>
-                <img src={Image1} id="image1"/>
-            </div> */}
 
               <li>
                 <a href="#">
-                  <i class="fas fa-umbrella-beach fa-4x iconcolor"></i>
                   <div id="topicname">
-                    <span>TravelLanka</span>
+                    <span>Travelit</span>
                   </div>
                 </a>
               </li>

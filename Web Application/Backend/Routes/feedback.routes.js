@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { response } = require("express");
 let Feedback = require("../Models/Feedback.model");
 
-//http://Localhost:8070/driver/add
+//http://Localhost:8070/feedback/add
 router.route("/add").post((req, res) =>{
     
     const topic = req.body.topic;
@@ -28,7 +28,6 @@ router.route("/add").post((req, res) =>{
 })
 
 // fetch data
-
 router.route("/").get((req, res) => {
 
     Feedback.find().then((feedback)=>{
@@ -41,7 +40,6 @@ router.route("/").get((req, res) => {
 })
 
 //update
-
 router.route("/update/:id").put(async (req, res) => {
 
     let userId = req.params.id;
@@ -73,7 +71,6 @@ router.route("/update/:id").put(async (req, res) => {
 })
 
 //delete
-
 router.route("/delete/:id").delete(async (req, res) => {
     let userId = req.params.id;
 

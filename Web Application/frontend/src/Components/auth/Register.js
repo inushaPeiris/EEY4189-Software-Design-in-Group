@@ -97,9 +97,11 @@ export default function Register() {
             <div id="c2">
                 <br></br><br></br><br></br><br></br><br></br><br></br>
                 <div id="rtext6">
-                    WELCOME &nbsp;&nbsp; TO <br></br><i id="rtext5"> TravelLanka</i><br></br>
+                    Create Account Here <br></br>
+                    <i id="rtext5"> Travelit</i>
+                    <br></br>
                     <span id="rtext7">
-                        No matter where you’re going from, we take you there..
+                        Manage Your Business With Travelit...
                     </span>
                 </div>
             </div>
