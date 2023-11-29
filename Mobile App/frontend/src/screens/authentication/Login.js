@@ -112,7 +112,7 @@ const Login = ({ navigation }) => {
                 fontWeight: "500",
                 textAlign: "right",
               }}
-              onPress={() => navigation.navigate("Forgotpw")}
+              onPress={() => navigation.navigate("ForgotPassword")}
             >
               {" "}
               Fogot Password?

@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
 
 import {

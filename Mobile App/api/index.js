@@ -153,3 +153,112 @@ app.get("/profile/:userId", async (req, res) => {
     res.status(500).json({ message: "Error while getting the profile" });
   }
 });
+
+const generateResetToken = () => {
+  const resetToken = crypto.randomBytes(32).toString("hex");
+  return resetToken;
+};
+
+// Reset password
+app.post("/password-reset", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const resetToken = generateResetToken();
+    user.resetPasswordToken = resetToken;
+    user.resetPasswordExpires = Date.now() + 3600000; // Token expires in 1 hour
+
+    await user.save();
+
+    // Send reset password email
+    sendResetPasswordEmail(user.email, resetToken);
+
+    res.status(200).json({resetToken, message: "Password reset request successful" });
+  } catch (error) {
+    console.log("Error requesting password reset", error);
+    res.status(500).json({ message: "Error requesting password reset" });
+  }
+});
+
+const sendResetPasswordEmail = async (email, resetToken) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "teamjustnerds@gmail.com",
+      pass: "miptnxktvnjlgcla",
+    },
+  });
+
+  const mailOptions = {
+    from: "teamjustnerds@gmail.com",
+    to: email,
+    subject: "Password Reset",
+    text: `Click the following link to reset your password: http://localhost:9000/reset/${resetToken}`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (error) {
+    console.log("Error sending email", error);
+  }
+};
+
+// email link path
+app.get("/reset/:token", async (req, res) => {
+  try {
+    const token = req.params.token; 
+    
+    // check the user token is valid
+    const user = await User.findOne({
+      resetPasswordToken: token,
+      resetPasswordExpires: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: "Invalid or expired reset token" });
+    }
+    
+    //sending new token 
+    res.status(200).json({token, message: "This is your OTP" });
+  } catch (error) {
+    console.log("Error handling reset token", error);
+    res.status(500).json({ message: "Error handling reset token" });
+  }
+});
+
+app.post("/reset/:token", async (req, res) => {
+  try {
+    const { password } = req.body;
+    const token = req.params.token;
+
+    const user = await User.findOne({
+      resetPasswordToken: token,
+      resetPasswordExpires: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: "Invalid or expired reset token" });
+    }
+
+    // Update the password and clear the reset token fields
+    user.password = password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+
+    await user.save();
+
+    res.status(200).json({ message: "Password reset successful" });
+  } catch (error) {
+    console.log("Error resetting password", error);
+    res.status(500).json({ message: "Error resetting password" });
+  }
+});

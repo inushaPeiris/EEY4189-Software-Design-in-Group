@@ -1,93 +1,68 @@
-import React from "react";
-import { SafeAreaView, ScrollView, View, StyleSheet, ImageBackground, Text, TextInput, TouchableOpacity,Image } from "react-native";
+import React, { useState, useContext } from "react";
+import ResetTokenContext from "./context/resetToken";
+import axios from "axios";
 
-const Resetpw =({navigation}) =>{
-    return (
-        <SafeAreaView>
-            <ScrollView>
+import {
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 
-            {/* background Image & Logo */}
-            <View style = {style.container}>
+const Resetpw = () => {
+  //context
+  const { resetToken } = useContext(ResetTokenContext);
 
-                <ImageBackground source={require('../../assest/images/login_bg.png')} resizeMode="cover" style={style.defaultbg}>
-                    <Image source={require('../../assest/images/travelit_logo.png')}
-                    style={{alignItems:'center',width:150,height:150, padding:20,resizeMode: 'contain',
-                    alignSelf: 'center',}}/>
-                </ImageBackground>
+  const [newPassword, setNewPassword] = useState("");
+  const [resetStatus, setResetStatus] = useState(null);
 
-            </View>
+  const handleResetPassword = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:9000/reset/${resetToken}`,
+        {
+          password: newPassword,
+        }
+      );
 
-            <View style={style.formInput}>
-                <Text style={{fontSize:16,fontWeight:'500',textAlign:'center'}}>
-                    Set Your New Password
-                </Text>
-            </View>
-
-            {/* Text Input Fields */}
-            <View style={style.formInput}>
-                <TextInput style={style.textInput} placeholder="New Password"/>
-            </View>
-
-            <View style={style.formInput}>
-                <TextInput style={style.textInput} placeholder="Confirm password" secureTextEntry={true}/>
-            </View>
-
-            {/* Main Button */}
-            <View style={style.formInput}>
-                <TouchableOpacity style={style.mainButton}>
-                        <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: '500', color: 'white' }} onPress={()=> navigation.navigate("Login")}>
-                            Reset Password
-                        </Text>
-                </TouchableOpacity>
-            </View>
-
-            {/* Back Button */}
-            <View style={style.backRoute}>
-                <TouchableOpacity>
-                        <Text style={{ color: '#076ff7', fontSize: 16, fontWeight: '500', textAlign: 'center' }} onPress={()=> navigation.navigate("Otp")}>
-                            Back
-                        </Text>
-                </TouchableOpacity>
-            </View>
-
-            </ScrollView>
-        </SafeAreaView>
-    )
-}
-
-const style = StyleSheet.create({
-    container:{
-        flex:1
-    },
-
-    defaultbg:{
-        width:'100%',
-        height:140
-    },
-
-    formInput:{
-        marginTop:10,
-        padding:10
-    },
-
-    textInput:{
-        padding:10,
-        fontSize:16,
-        borderWidth:1,
-        borderColor:'#477173',
-        borderRadius:10
-    },
-
-    mainButton:{
-        padding:12,
-        backgroundColor:'#076ff7',
-        borderRadius:10
-    },
-    
-    backRoute:{
-        padding:5,
-        marginTop:5
+      // Assuming the server sends back a success message
+      setResetStatus(response.data.message);
+    } catch (error) {
+      console.error("Error:", error);
+      setResetStatus("Error resetting password");
     }
+  };
+  return (
+    <SafeAreaView>
+      <ScrollView>
+        {/* Reset Password Form */}
 
-});
+        <View>
+          {/* Reset Password Form */}
+          <Text>Enter your new password:</Text>
+          <TextInput
+            placeholder="New Password"
+            secureTextEntry
+            value={newPassword}
+            onChangeText={(text) => setNewPassword(text)}
+          />
+          <TouchableOpacity
+            onPress={() => {
+              handleResetPassword();
+              setTimeout(() => {
+                navigation.navigate("Login");
+              }, 2000); // 2 seconds
+            }}
+          >
+            <Text>Reset Password</Text>
+          </TouchableOpacity>
+          {resetStatus && <Text>{resetStatus}</Text>}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
 export default Resetpw;
