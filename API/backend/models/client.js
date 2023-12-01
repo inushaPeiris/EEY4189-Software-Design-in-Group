@@ -1,31 +1,34 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const clientSchema = new mongoose.Schema({
-
-    name:{
-        type:String,
-        required:true
-    },
-    address:{
-        type:String,
-        required:true
-    },
-    email:{
-        type:String,
-        required:true
-    },
-    username:{
-        type:String,
-        required:true
-    },
-    newPassword:{
-        type:String,
-        required:true
-    },
-    rePassword:{
-        type:String,
-        required:true
-    }
-})
+  name: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  username: {
+    type: String,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  rePassword: {
+    type: String,
+  },
+  verified: {
+    type: Boolean,
+    default: false,
+  },
+  verificationToken: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
+});
 
 module.exports = mongoose.model("Client", clientSchema);

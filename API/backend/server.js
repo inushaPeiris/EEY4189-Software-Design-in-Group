@@ -23,7 +23,7 @@ app.use(bookingRoutes);
 app.use('/uploads', express.static('uploads'));
 
 const PORT = 8000;
-const DB_URL = 'mongodb+srv://gavindumaleesha01:gavindu123@mernapp.ebynfmh.mongodb.net/';
+const DB_URL = 'mongodb+srv://travelit:eHBu8pL1q4qHAdGv@cluster0.sul9fgc.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(DB_URL)
 .then(()=>{

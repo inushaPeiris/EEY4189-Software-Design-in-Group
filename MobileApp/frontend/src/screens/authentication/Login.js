@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
@@ -20,7 +18,7 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //user will be navigating to the dashboard if they are registered.
+  //client will be navigating to the dashboard if they are registered.
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
@@ -40,13 +38,13 @@ const Login = ({ navigation }) => {
   }, []);
 
   const handleLogin = () => {
-    const user = {
+    const client = {
       email: email,
       password: password,
     };
 
     axios
-      .post("http://localhost:9000/login", user)
+      .post("http://localhost:8000/client/login", client)
       .then((response) => {
         console.log(response);
         const token = response.data.token;

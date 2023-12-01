@@ -20,14 +20,14 @@ const Register = ({ navigation }) => {
   const [conformPassword, setConformPassword] = useState("");
 
   const handleSubmit = () => {
-    const user = {
+    const client = {
       name: name,
       email: email,
       password: password,
     };
 
     axios
-      .post("http://localhost:9000/register", user)
+      .post("http://localhost:8000/client/save", client)
       .then((response) => {
         console.log(response);
         alert(

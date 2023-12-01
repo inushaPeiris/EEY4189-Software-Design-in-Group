@@ -21,7 +21,7 @@ const Resetpw = () => {
   const handleResetPassword = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:9000/reset/${resetToken}`,
+        `http://localhost:8000/client/reset/${resetToken}`,
         {
           password: newPassword,
         }

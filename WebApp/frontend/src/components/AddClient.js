@@ -13,7 +13,7 @@ export default class AddClient extends Component {
         address: '',
         email: '',
         username: '',
-        newPassword: '',
+        password: '',
         rePassword: '',
     };
   }
@@ -33,7 +33,7 @@ export default class AddClient extends Component {
       address,
       email,
       username,
-      newPassword,
+      password,
       rePassword,
     } = this.state;
   
@@ -45,7 +45,7 @@ export default class AddClient extends Component {
           address,
           email,
           username,
-          newPassword,
+          password,
           rePassword,
         },
         {
@@ -61,7 +61,7 @@ export default class AddClient extends Component {
           address: '',
           email: '',
           username: '',
-          newPassword: '',
+          password: '',
           rePassword: '',
         });
         alert('Client added successfully');
@@ -81,7 +81,7 @@ export default class AddClient extends Component {
         address,
         email,
         username,
-        newPassword,
+        password,
         rePassword,
       } = this.state;
 
@@ -142,8 +142,8 @@ export default class AddClient extends Component {
                   <Form.Label className="form-label">Password</Form.Label>
                   <Form.Control
                     placeholder="Enter password"
-                    name="newPassword"
-                    value={newPassword}
+                    name="password"
+                    value={password}
                     onChange={this.handleChange}
                   />
                 </Form.Group>
